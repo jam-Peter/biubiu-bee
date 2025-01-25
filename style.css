@@ -1,0 +1,117 @@
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 10px;
+}
+
+#bee {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+  background: url('bee.png') center/contain no-repeat;
+  transition: bottom 0.2s ease-out;
+}
+
+.flower {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url('flower.png') center/contain no-repeat;
+}
+
+.obstacle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: url('badbee.png') center/contain no-repeat;
+  animation: badbeeFloat 2s ease-in-out infinite;
+}
+
+.bullet {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255,0,0,0.8);
+}
+
+@keyframes badbeeFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.magnet {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url('magnet.png') center/contain no-repeat;
+  animation: magnetFloat 2s ease-in-out infinite;
+}
+
+@keyframes magnetFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.laser {
+  background: linear-gradient(to right, #00f, #00a);
+  position: absolute;
+  z-index: 1;
+  opacity: 0.8;
+  box-shadow: 0 0 10px #00f;
+  transition: opacity 0.1s ease-out;
+  transform-origin: left center;
+  animation: laserShoot 0.2s linear;
+}
+
+@keyframes laserShoot {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+#start-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  animation: pulse 1.5s infinite;
+}
+
+#timer {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+#magnet-timer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #888;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  transition: color 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
